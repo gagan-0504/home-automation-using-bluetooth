@@ -1,0 +1,43 @@
+1         #define R1 2
+2         #define R2 3
+3         #define R3 4
+4         #define R4 5
+5
+6         void  setup( ) {
+7         serial.begin(9600);
+8
+9         pinmode(R1,OUTPUT);
+10       pinmode(R2,OUTPUT);
+11       pinmode(R3,OUTPUT);
+12       pinmode(R4,OUTOUT);
+13
+14
+15       digitalwrite(R1, HIGH);
+16       digitalwrite(R2, HIGH);
+17       digitalwrite(R3, HIGH);
+18       digitalwrite(R4, HIGH);
+19
+20       serial .println(“Bluetooth  Home  Automation  Ready…”);
+21     }
+22
+23     void  loop( )   {
+24
+25        if  (serial .available( ) )   {
+26          char  cmd = Serial .read( );
+27
+28          switch( cmd )  {
+29
+30              case   ‘A’  :   digitalwrite(R1, LOW);  break;
+31              case   ‘a’  :   digitalwrite(R1,  HIGH);  break;
+32          
+33              case   ‘B’  :   digitalwrite(R2, LOW);  break;
+34              case   ‘b’  :   digitalwrite(R2,  HIGH);  break;
+35
+36              case   ‘C’ :   digitalwrite(R3,  LOW);  break;
+37              case   ‘c’  :   digitalwrite(R3,   HIGH); break;
+38  
+39              case   ‘D’ :   digitalwrite(R4,  LOW);  break;
+40              case   ‘d’  :   digitalwrite(R4,   HIGH); break;
+41          }         
+42        }     
+43     }
